@@ -27,6 +27,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'bower'
 
+gem 'jquery-rails'
+
 gem 'devise_token_auth'
 gem 'omniauth'
 

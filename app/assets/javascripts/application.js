@@ -12,4 +12,20 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-deparam/jquery-deparam
+//= require jquery-cookie/jquery.cookie
+//= require pubsub-js/src/pubsub
+//= require j-toker/dist/jquery.j-toker
+//= require materialize
 //= require_tree .
+
+// $(function() {
+// 	$.auth.configure({
+// 		apiURL: 'http://localhost:3000/'
+// 	});
+
+// 	var auth = {
+		
+// 	}
+
+// });

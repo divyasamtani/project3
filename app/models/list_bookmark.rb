@@ -1,0 +1,2 @@
+class ListBookmark < ApplicationRecord
+end
