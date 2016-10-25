@@ -1,3 +1,4 @@
 class ListBookmark < ApplicationRecord
-	belongs_to :user, :list
+	belongs_to: :user
+	belongs_to: :list
 end
