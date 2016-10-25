@@ -27,6 +27,9 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'bower'
 
+gem 'devise_token_auth'
+gem 'omniauth'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
