@@ -1,5 +1,20 @@
 Rails.application.routes.draw do
   mount_devise_token_auth_for 'User', at: 'auth'
 	# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-	resources :lists
+	resources :user do
+		resources :lists, only: [:index, :show, :new, :edit]
+	end
+
+	root 'statics#main'
+
+	namespace :api do
+		namespace :user do
+			resources :lists
+		end
+
+		resources :users, only: [:index] do
+			resources :lists
+		end
+	end
+
 end
