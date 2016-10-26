@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  console.log('j-toker ready')
+  console.log('auth ready')
 
   $.auth.configure({
     apiUrl: 'http://localhost:3000'

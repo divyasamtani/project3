@@ -1,1 +1,11 @@
 <h1>list index</h1>
+
+<table>
+<% @lists.each do |list| %>
+  <tr>
+    <td><%= list.title %></td>
+    <td><%= list.description %></td>
+    <td><%= link_to 'Show', list_path(list) %></td>
+  </tr>
+  <% end %>
+</table>
