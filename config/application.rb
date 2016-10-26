@@ -31,6 +31,10 @@ module Project3
       end
     end
 
+    # Include font folder
+    config.assets.enabled = true
+    config.assets.paths << Rails.root.join('/app/assets/fonts')
+
   end
 end
 

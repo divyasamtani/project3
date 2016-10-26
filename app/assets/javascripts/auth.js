@@ -7,18 +7,20 @@ $(document).ready(function(){
 
   var SignupClick = function(){
     var params = {
-      email: $('#email').val(),
-      password: $('#password').val()
+      email: $('#createEmail').val(),
+      password: $('#createPassword').val(),
+      password_confirmation: $('#confirmPassword').val()
     }
 
     $.auth.emailSignUp(params).then(function(user){
+      // User succesfuly registered an account
       alert('Welcome!');
     }).fail(function(resp) {
-      alert('Authentication failure: ' + resp.errors.join(' '));
+      alert(resp.reason);
     });
   }
 
-  $('#signup-btn').click(function(e){
+  $('#registerButton').click(function(e){
     e.preventDefault();
     SignupClick();
   })
@@ -36,7 +38,7 @@ $(document).ready(function(){
     })
   }
 
-  $('#login-btn').click(function(e){
+  $('#loginButton').click(function(e){
     e.preventDefault();
     LoginClick();
   })
@@ -44,13 +46,13 @@ $(document).ready(function(){
 
   var LogoutClick = function(e){
     $.auth.signOut().then(function(user){
-      alert('Logged Out')
+      window.location.replace("http://localhost:3000/");
     }).fail(function(resp){
       console.log(resp)
     })
   }
 
-  $('#logout-btn').click(function(e){
+  $('#logoutButton').click(function(e){
     e.preventDefault();
     LogoutClick();
   })

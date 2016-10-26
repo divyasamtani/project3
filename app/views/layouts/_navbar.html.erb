@@ -1,13 +1,14 @@
 <!-- Navigation Bar -->
-<nav>
+<nav class="light-blue darken-4">
 	<div class="nav-wrapper">
 		<a href="#" class="brand-logo">Denis' World</a>
 		<ul id="nav-mobile" class="right hide-on-med-and-down">
-			<li><a href="#signin" class="waves-effect waves-light btn modal-trigger">Signin</a></li>
+			<li><a href="#signin" class="light-blue darken-2 waves-effect waves-light btn modal-trigger">Signin</a></li>
+
+			<li><a id="logoutButton" class="red red-accent-4 waves-effect waves-light btn">Logout</a>
 		</ul>
 	</div>
 </nav>
-
 
 <!-- Signin Modal Structure -->
 <div id="signin" class="modal">
@@ -36,7 +37,7 @@
 			</div>
 
 			<div class="input-field col s3 offset-s3 center">
-				<a class="btn waves-effect waves-light col s12">Login</a>
+				<a id="loginButton" class="btn waves-effect waves-light col s12">Login</a>
 			</div>
 		</div>
 	</div>
@@ -67,12 +68,12 @@
 					<input id="confirmPassword" type="password" class="validate">
 					<label for="password">Confirm Password</label>
 				</div>
-			</div>
+			</div> 
 		</form>
 
 		<div class="row">
 			<div class="input-field col s6 center offset-s3">
-				<a id="registerButton" class="btn waves-effect waves-light col s12">Register</a>
+				<a id="registerButton" class="btn waves-effect waves-light red accent-4 col s12">Register</a>
 			</div>
 		</div>
 	</div>

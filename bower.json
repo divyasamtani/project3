@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "materialize": "^0.97.7",
-    "j-toker": "^0.0.9"
+    "j-toker": "^0.0.9",
+    "font-awesome": "fontawesome#^4.7.0"
   }
 }
