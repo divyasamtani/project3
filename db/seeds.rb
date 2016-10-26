@@ -7,37 +7,38 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 50.times do
- Restaurant.create(name: Faker::Hipster.word)
- User.create(name: Faker::Name.name,
-             email: Faker::Internet.email,
-             password: Faker::Internet.password(8))
+  Restaurant.create(name: Faker::Hipster.word)
 
- ids = User.pluck(:id)
- # returns an array of all the id's in the table
- random_User = User.find(ids.sample)
- # sample gives a random ID from the array and returns a random User
+  User.create({
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    password: Faker::Internet.password(8)
+  })
 
- l_params = {
-     title: Faker::Book.title,
-     description: Faker::Lorem.sentence(3),
-     user_id: random_User.id
- }
+  ids = User.pluck(:id)
+  # returns an array of all the id's in the table
+  random_User = User.find(ids.sample)
+  # sample gives a random ID from the array and returns a random User
 
- l = List.create(l_params)
+  l_params = {
+    title: Faker::Book.title,
+    description: Faker::Lorem.sentence(3),
+    user_id: random_User.id
+  }
 
-# Generate Restaurant List assocation
+  l = List.create(l_params)
 
- list_ids = List.pluck(:id)
- random_List = List.find(list_ids.sample)
+  # Generate Restaurant List assocation
+  list_ids = List.pluck(:id)
+  random_List = List.find(list_ids.sample)
 
- restaurant_ids = Restaurant.pluck(:id)
- random_Restaurant = Restaurant.find(restaurant_ids.sample)
+  restaurant_ids = Restaurant.pluck(:id)
+  random_Restaurant = Restaurant.find(restaurant_ids.sample)
 
- rl_params = {
-   list_id: random_List.id,
-   restaurant_id: random_Restaurant.id
- }
+  rl_params = {
+    list_id: random_List.id,
+    restaurant_id: random_Restaurant.id
+  }
 
- r = RestaurantList.create(rl_params)
-
+  r = RestaurantList.create(rl_params)
 end
