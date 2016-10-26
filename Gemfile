@@ -32,6 +32,8 @@ gem 'jquery-rails'
 gem 'devise_token_auth'
 gem 'omniauth'
 
+gem 'faker'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
