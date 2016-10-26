@@ -44,5 +44,36 @@ $(document).ready(function(){
     SignupClick();
   })
 
+  var LoginClick = function(){
+    var params = {
+      email: $('#email').val(),
+      password: $('#password').val()
+    }
+
+    $.auth.emailSignIn(params).then(function(resp){
+      alert('Logged In!');
+    }).fail(function(resp) {
+      console.log(resp)
+    })
+  }
+
+  $('#login-btn').click(function(e){
+    e.preventDefault();
+    LoginClick();
+  })
+
+
+  var LogoutClick = function(e){
+    $.auth.signOut().then(function(user){
+      alert('Logged Out')
+    }).fail(function(resp){
+      console.log(resp)
+    })
+  }
+
+  $('#logout-btn').click(function(e){
+    e.preventDefault();
+    LogoutClick();
+  })
 
 });
