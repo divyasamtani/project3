@@ -1,27 +1,27 @@
 <!-- <div class="container"> -->
-	<h1 class="center">user list index</h1>
-	<div class="row">
-		<%= @lists.each do |list| %>
-				<div class="col s4">
-					<ul class="collapsible indigo darken-4" data-collapsible="accordion">
-						<li> 
-							<div class="white-text collapsible-header indigo darken-4">
-								<div class="row">
-									<div class="col s11">
-										<%= "#{list.title} "%>
-									</div>
-									<div class="col s1">
-										<i class="bookmark fa fa-star" data-favourite="no" aria-hidden="true"></i>
-									</div> 
+<h1 class="center">user list index</h1>
+<div class="row">
+	<%= @lists.each do |list| %>
+			<div class="col s4">
+				<ul class="collapsible indigo darken-4" data-collapsible="accordion">
+					<li> 
+						<div class="white-text collapsible-header indigo darken-4">
+							<div class="row">
+								<div class="col s11">
+									<%= "#{list.title} "%>
 								</div>
-							</div> <!-- pink lighten-4 -->
+								<div class="col s1">
+									<i class="bookmark fa fa-star" data-favourite="no" aria-hidden="true"></i>
+								</div> 
+							</div>
+						</div> <!-- pink lighten-4 -->
 
-							<div class="collapsible-body indigo darken-1 white-text">
-								<p><%= list.description %></p>
-							</div> <!-- cyan lighten-4 -->
-						</li>
-					</ul>
-				</div>
-		<% end %>
-	</div>
+						<div class="collapsible-body indigo darken-1 white-text">
+							<p><%= "#{list.description}" %></p>
+						</div> <!-- cyan lighten-4 -->
+					</li>
+				</ul>
+			</div>
+	<% end %>
+</div>
 <!-- </div> -->
