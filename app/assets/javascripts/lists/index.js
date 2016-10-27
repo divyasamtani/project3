@@ -1,17 +1,17 @@
 $('.lists.index').ready(function(){
-	console.log("lists index");
-	$('.bookmark').on('click', function(e) {
-		var that = this;
 
-		if ($(that).data('favourite') === 'no') {
-			$(that).attr('data-favourite', 'yes');
-		}
+	// console.log("lists index");
+	// $('.bookmark').on('click', function(e) {
+	// 	var that = this;
 
-		if ($(that).data('favourite') === 'yes') {
-			$('.bookmark').attr('data-favourite', 'no');
-		}
+	// 	if ($(that).data('favourite') === 'no') {
+	// 		$(that).attr('data-favourite', 'yes');
+	// 	}
 
-		e.preventDefault();
-	});
+	// 	if ($(that).data('favourite') === 'yes') {
+	// 		$('.bookmark').attr('data-favourite', 'no');
+	// 	}
+
+	// 	e.preventDefault();
+	// });
 });
-	
