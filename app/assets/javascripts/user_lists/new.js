@@ -4,7 +4,6 @@ $('.user_lists.new').ready(function(){
 	// Tracks user input field.
 	var countInputField = 1;
 
-<<<<<<< HEAD
 	var wrapper = $('.input-wrapper-field');
 
 	$('#addInputButton').on('click', function(e) {
@@ -31,9 +30,8 @@ $('.user_lists.new').ready(function(){
 		e.preventDefault();
 		$(this).parent('div').parent('div').parent('div').remove();
 		countInputField--;
-=======
+
 	$('#addInputButton').on('click', function() {
 		console.log("test");
->>>>>>> parent of 841d4cb... User list
 	});
 });
