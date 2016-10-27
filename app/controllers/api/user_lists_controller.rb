@@ -8,6 +8,7 @@ class API::UserListsController < ApplicationController
 # 1
   def index
     render json: @userlists
+    render json: @email
   end
 
 # 2
@@ -48,6 +49,11 @@ class API::UserListsController < ApplicationController
 
 # PRIVATE METHODS
   private
+
+    def email
+      @email = List.find_by(id: param[:id]).user.email
+    end
+
     def set_userlists
       @userlists = current_user.lists
     end
