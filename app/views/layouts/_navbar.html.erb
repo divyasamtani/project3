@@ -1,22 +1,80 @@
-<nav>
-  <div class="nav-wrapper">
-    <a href="#" class="brand-logo">Denis' World</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="#modal1" class="waves-effect waves-light btn modal-trigger">Login</a></li>
-    </ul>
-  </div>
+<!-- Navigation Bar -->
+<nav class="navbar-fixed light-blue darken-4">
+	<div class="nav-wrapper">
+		<a href="#" class="brand-logo">Denis' World</a>
+		<ul id="nav-mobile" class="right hide-on-med-and-down">
+			<li><a href="#signin" class="light-blue darken-2 waves-effect waves-light btn modal-trigger">Signin</a></li>
+
+			<li><a id="logoutButton" class="red red-accent-4 waves-effect waves-light btn">Logout</a>
+		</ul>
+	</div>
 </nav>
 
-  <!-- Modal Trigger -->
-  <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
- -->
-  <!-- Modal Structure -->
-  <div id="modal1" class="modal">
-    <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
-  </div>
+<!-- Signin Modal Structure -->
+<div id="signin" class="modal">
+	<div class="modal-content">
+		<h4>Signin</h4>
+
+		<form class="col s12">
+			<div class="row">
+				<div class="input-field col s12">
+					<input id="email" type="email" class="validate">
+					<label for="email">Email</label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="input-field col s12">
+					<input id="password" type="password" class="validate">
+					<label for="password">Password</label>
+				</div>
+			</div>
+		</form>
+
+		<div class="row">
+			<div class="input-field col s6">
+				<p><a id="signupModalOpen" href="#">Click here</a> to register an account today!</p>
+			</div>
+
+			<div class="input-field col s3 offset-s3 center">
+				<a id="loginButton" class="btn waves-effect waves-light col s12">Login</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Signup Modal Structure -->
+<div id="signup" class="modal">
+	<div class="modal-content">
+		<h4>Signup</h4>
+
+		<form class="col s12">
+			<div class="row">
+				<div class="input-field col s12">
+					<input id="createEmail" type="email" class="validate">
+					<label for="email">Email</label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="input-field col s12">
+					<input id="createPassword" type="password" class="validate">
+					<label for="password">Password</label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="input-field col s12">
+					<input id="confirmPassword" type="password" class="validate">
+					<label for="password">Confirm Password</label>
+				</div>
+			</div> 
+		</form>
+
+		<div class="row">
+			<div class="input-field col s6 center offset-s3">
+				<a id="registerButton" class="btn waves-effect waves-light red accent-4 col s12">Register</a>
+			</div>
+		</div>
+	</div>
+</div>
