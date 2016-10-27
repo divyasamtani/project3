@@ -41,4 +41,12 @@
   }
 
   r = RestaurantList.create(rl_params)
+
+  ul_params = {
+    list_id: random_List.id,
+    user_id: random_User.id
+  }
+
+  b = ListBookmark.create(ul_params)
+
 end

@@ -17,7 +17,7 @@ $('.user_lists.new').ready(function(){
 													'</div>' +
 													'<div class="col s1">' +
 														'<a class="removeInputButton btn-floating btn waves-effect waves-light red">'+
-															'<i class="fa fa-minus"></i>' +	
+															'<i class="fa fa-minus"></i>' +
 														'</a>' +
 													'</div>' +
 												'</div>' +

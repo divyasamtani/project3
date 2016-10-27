@@ -2,9 +2,7 @@ class API::ListsController < ApplicationController
   before_action :set_lists
   before_action :set_list
 
-
   def index
-    render json: @lists
   end
 
   def show
