@@ -1,8 +1,8 @@
 # module: API
 class API::UserListsController < ApplicationController
-  before_action :set_userlists
-  before_action :set_userlist
-
+  before_action :authenticate_user!
+  before_action :set_userlists, only: [:index]
+  before_action :set_userlist, only: [:show, :update, :destroy]
 
 # CRUD
 # 1
@@ -17,13 +17,13 @@ class API::UserListsController < ApplicationController
 
 
 # 3
-  def new
-    @userlist = List.new(userlist_params)
+  def create
+    @userlist = current_user.lists.new(userlist_params)
 
     if @userlist.save
-      render 'new'
+      render json: @userlist
     else
-      render json: userlist.errors.messages, status: 422
+      render json: @userlist.errors.messages, status: 422
     end
   end
 
@@ -32,9 +32,9 @@ class API::UserListsController < ApplicationController
     @userlist.assign_attributes(userlist_params)
 
     if @userlist.save
-      render 'show'
+      render json: @userlist
     else
-      render json: userlist.errors.messages, status: 422
+      render json: @userlist.errors.messages, status: 422
     end
   end
 
@@ -49,16 +49,14 @@ class API::UserListsController < ApplicationController
 # PRIVATE METHODS
   private
     def set_userlists
-      currentUser = $.auth.user.id
-      @userlists = List.where(user_id: currentUser)
+      @userlists = current_user.lists
     end
 
     def set_userlist
-      @userlist = List.find_by(user_id: currentUser)
+      @userlist = current_user.lists.find_by(id: params[:id])
     end
 
     def userlist_params
       params.require(:list).permit(:title, :description)
     end
   end
-end

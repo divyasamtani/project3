@@ -6,6 +6,6 @@
   "dependencies": {
     "materialize": "^0.97.7",
     "j-toker": "^0.0.9",
-    "font-awesome": "fontawesome#^4.7.0"
+    "font-awesome": "^4.7.0"
   }
 }
