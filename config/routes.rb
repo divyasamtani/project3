@@ -33,6 +33,10 @@ Rails.application.routes.draw do
       #                    PATCH    /api/user/lists/:id(.:format)          api/user_lists#update
       #                    PUT      /api/user/lists/:id(.:format)          api/user_lists#update
       #                    DELETE   /api/user/lists/:id(.:format)          api/user_lists#destroy
+      resources :bookmarks, only: [:index, :create], controller: 'user_bookmarks', as: 'user_bookmarks'
+      # api_user_bookmarks GET      /api/user/bookmarks(.:format)          api/user_bookmarks#index
+      #                    POST     /api/user/bookmarks(.:format)          api/user_bookmarks#create
+
 		end
 
 		resources :lists
