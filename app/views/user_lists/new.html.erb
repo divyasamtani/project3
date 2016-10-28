@@ -5,21 +5,21 @@
 		<form class="col s11 offset-s1">
 			<div class="row">
 				<div class="input-field col s12">
-					<input placeholder="Title" id="title" type="text" class="validate">
+					<input name="title" placeholder="Title" id="title" type="text" class="validate">
 					<label for="title">Title</label>
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="input-field col s12">
-					<input placeholder="Description" id="description" type="text" class="validate">
+					<input name="description" placeholder="Description" id="description" type="text" class="validate">
 					<label for="description">Description</label>
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="input-field col s12">
-					<input placeholder="Restaurant" class="restaurant" type="text" class="validate">
+					<input name="restaurant[0]" id="restaurantInput1" placeholder="Restaurant" type="text" class="validate">
 					<label for="restaurant">Restaurant</label>
 				</div>
 			</div>
@@ -35,7 +35,9 @@
 
 			<div class="row">
 				<div class="input-field col s6">
-					<a class="red red-accent-4 waves-effect waves-light btn">Submit List</a>
+<!-- 					<a id="submitList" class="red red-accent-4 waves-effect waves-light btn">Submit List</a> -->
+
+					<button id="submitList" class="red red-accent-4 waves effect waves-light btn">Submit List</button>
 				</div>
 			</div>
 		</form>
