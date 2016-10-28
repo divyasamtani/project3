@@ -1,9 +1,13 @@
 class ListsController < ApplicationController
-  def index
-    @lists = List.all
-  end
+	def index
+		@lists = List.all
+	end
 
-  def show
-    @list = List.find_by(id: params[:id])
-  end
+	def show
+		@list = List.find_by(id: params[:id])
+	end
+
+	def create
+		
+	end
 end

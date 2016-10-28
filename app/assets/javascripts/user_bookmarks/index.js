@@ -1,7 +1,7 @@
 $('.user_lists.index').ready(function(){
   console.log("user_lists index");
 
-  var getMyLists = function () {
+   var getMyBookmarkedLists = function () {
     $.ajax({
       url: '/api/user/lists',
       method: 'get',
@@ -38,9 +38,11 @@ $('.user_lists.index').ready(function(){
   }
 
   var init = function () {
-    getMyLists();
+    getMyBookmarkedLists ();
   }
 
-  init ();
+  init();
 
 });
+
+
