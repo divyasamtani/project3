@@ -2,9 +2,7 @@ class API::ListsController < ApplicationController
   before_action :set_lists
   before_action :set_list
 
-
   def index
-    render json: @lists
   end
 
   def show
@@ -16,7 +14,7 @@ class API::ListsController < ApplicationController
 private
 
   def set_lists
-    @lists = List.all
+    @lists = List.includes(:user, :restaurants).all
   end
 
   def set_list

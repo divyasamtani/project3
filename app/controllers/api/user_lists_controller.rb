@@ -8,14 +8,12 @@ class API::UserListsController < ApplicationController
 # 1
   def index
     render json: @userlists
-    render json: @email
   end
 
 # 2
   def show
     render json: @userlist
   end
-
 
 # 3
   def create
