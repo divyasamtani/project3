@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20161025080502) do
     t.integer  "restaurant_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.boolean  "checked"
   end
 
   create_table "restaurants", force: :cascade do |t|
