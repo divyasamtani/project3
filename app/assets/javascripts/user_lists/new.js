@@ -30,8 +30,5 @@ $('.user_lists.new').ready(function(){
 		e.preventDefault();
 		$(this).parent('div').parent('div').parent('div').remove();
 		countInputField--;
-
-	$('#addInputButton').on('click', function() {
-		console.log("test");
 	});
 });
