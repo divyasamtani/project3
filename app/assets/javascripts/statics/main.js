@@ -19,6 +19,7 @@ $('.statics.main').ready(function(){
 													'</div>' +
 													'<div class="collapsible-body">' +
 	                					'<p>' + list.description + '</p>' +
+	                					'<p>' + list.list_restaurants + '</p>' +
 	                				'</div>' +
 	              				'</li>' +
 	              			'</ul>' +
