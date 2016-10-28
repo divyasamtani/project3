@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # protect_from_forgery with: :null_session
    before_action :get_current_user
   def authenticate_user!
-    render json: {message: "Unauthorize"} if current_user.nil?
+    render json: {message: "Unauthorize"}, status: 404 if current_user.nil?
   end
   def get_current_user
     return nil unless cookies[:authHeaders]
