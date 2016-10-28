@@ -1,3 +1,5 @@
+# controls the list the current_user owns
+
 # module: API
 class API::UserListsController < ApplicationController
   before_action :authenticate_user!
@@ -7,12 +9,11 @@ class API::UserListsController < ApplicationController
 # CRUD
 # 1
   def index
-    render json: @userlists
   end
 
 # 2
   def show
-    render json: @userlist
+    render json: @list
   end
 
 # 3
@@ -53,11 +54,14 @@ class API::UserListsController < ApplicationController
     end
 
     def set_userlists
-      @userlists = current_user.lists
+      @lists = current_user.lists
     end
 
     def set_userlist
-      @userlist = current_user.lists.find_by(id: params[:id])
+      @list = current_user.lists.find_by(id: params[:id])
+      if @list.nil?
+        render json: {message: "Cannot find '#{params[:id]}'"}
+      end
     end
 
     def userlist_params

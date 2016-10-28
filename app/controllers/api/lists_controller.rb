@@ -1,3 +1,5 @@
+# display public accessable lists
+
 class API::ListsController < ApplicationController
   before_action :set_lists
   before_action :set_list

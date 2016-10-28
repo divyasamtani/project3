@@ -1,8 +1,18 @@
 .statics.main {
+  background: image-url('restaurantblurred.jpg');
 
-  .collapsible-header {
-    height: 80px;
+  h2 {
+    color: white;
+    padding: 30px;
+    margin: 0px;
   }
 
+  .collapsible-header {
+    height: 50px;
+  }
+
+  #listTitle {
+    font-weight: bold;
+  }
 
 }
