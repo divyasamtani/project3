@@ -17,7 +17,7 @@ $('.user_lists.new').ready(function(){
 			wrapper.append('<div class="row">'+
 												'<div class="input-field col s12">' +
 													'<div class="col s11">' +
-														'<input name="restaurant[' + countInputField + ']" placeholder="Restaurant" type="text" class="validate">' +
+														'<input name="restaurant[]" placeholder="Restaurant" type="text" class="validate">' +
 													'</div>' +
 													'<div class="col s1">' +
 														'<a class="removeInputButton btn-floating btn waves-effect waves-light red">'+
@@ -29,13 +29,6 @@ $('.user_lists.new').ready(function(){
 			countInputField++;
 		}
 	});
-
-	// title=a &
-	// description=b &
-	// restaurant%5B0%5D=ccc &
-	// restaurant%5B1%5D=ddd &
-	// restaurant%5B2%5D=eee &
-	// restaurant%5B3%5D=fff
 
 	// Remove functionality
 	$('body').on('click', 'a.removeInputButton', function(e) {
@@ -49,5 +42,3 @@ $('.user_lists.new').ready(function(){
 		console.log(arrInputField);
 	});
 });
-
-
