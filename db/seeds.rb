@@ -37,7 +37,8 @@
 
   rl_params = {
     list_id: random_List.id,
-    restaurant_id: random_Restaurant.id
+    restaurant_id: random_Restaurant.id,
+    checked: Faker::Boolean.boolean
   }
 
   r = RestaurantList.create(rl_params)
