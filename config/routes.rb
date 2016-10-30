@@ -36,6 +36,7 @@ Rails.application.routes.draw do
       resources :bookmarks, only: [:index, :create], controller: 'user_bookmarks', as: 'user_bookmarks'
       # api_user_bookmarks GET      /api/user/bookmarks(.:format)          api/user_bookmarks#index
       #                    POST     /api/user/bookmarks(.:format)          api/user_bookmarks#create
+      resources :restaurant_list, only: [:index, :show, :create, :update], controller: 'restaurant_list', as: 'restaurant_lists'
 
 		end
 
