@@ -13,7 +13,15 @@ $('.statics.main').ready(function(){
 					var restaurants = "";
 
 					for(var i = 0; i < list.list_restaurants.length; i++) {
-						restaurants += '<li>' + '<input type="checkbox" class="filled-in" id="filled-in-box" checked="" /><label for="filled-in-box">' + list.list_restaurants[i] + '</label>' + '</li>';
+            var check = ''
+
+            if (list.restaurant_checked[i] == true) {
+              check = 'checked="checked"'
+            } else {
+              check = ''
+            };
+
+						restaurants += '<li>' + '<input type="checkbox" ' + check + ' id="' + list.title + list.list_restaurants[i] + i + '"/><label for="' + list.title + list.list_restaurants[i] + i + '">' + list.list_restaurants[i] + '</label>' + '</li>';
 				  }
 
 					var	html =
@@ -43,7 +51,15 @@ $('.statics.main').ready(function(){
         console.log(resp);
       }
 		});
+    checkboxEventListener();
   };
+
+  var checkboxEventListener = function() {
+    console.log('check working?')
+    $("form input:checkbox").change(function(e){
+      console.log(e)
+    })
+  }
 
   var createBookmark = function (params) {
 		$.ajax({
