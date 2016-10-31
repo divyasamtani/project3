@@ -1,11 +1,9 @@
 $('.user_lists.new').ready(function(){
-	// Limit input fields, user can add.
+	// Limit input fields for restaurants, user can add.
 	const MAXINPUTFIELD = 10;
 
 	// Tracks user input field.
 	var countInputField = 1;
-
-	var arrInputField = [];
 
 	var wrapper = $('.input-wrapper-field');
 
@@ -17,7 +15,7 @@ $('.user_lists.new').ready(function(){
 			wrapper.append('<div class="row">'+
 												'<div class="input-field col s12">' +
 													'<div class="col s11">' +
-														'<input name="restaurant[]" placeholder="Restaurant" type="text" class="validate">' +
+														'<input id="restaurantInput'+ countInputField+1 +'" name="restaurant[]" placeholder="Restaurant" type="text" class="validate">' +
 													'</div>' +
 													'<div class="col s1">' +
 														'<a class="removeInputButton btn-floating btn waves-effect waves-light red">'+
@@ -38,7 +36,31 @@ $('.user_lists.new').ready(function(){
 	});
 
 	$('#submitList').on('click', function(e) {
+		// e.preventDefault();
 
-		console.log(arrInputField);
+		var getListParams = {
+			list: {
+				title: $('#title').val(),
+				description: $('#description').val()
+			}
+		};
+
+		var getRestaurantParams = {
+
+		};
+
+		$.ajax({
+			method: 'POST',
+			url: 'http://localhost:3000/api/user/lists',
+			data: getParams
+		}).success(function(data) {
+			window.location.replace("http://localhost:3000/");
+		});
+
+		// $.ajax({
+		// 	method: 'POST',
+		// 	url: 'http://localhost:3000/api/restaurant',
+		// 	data
+		// });
 	});
 });

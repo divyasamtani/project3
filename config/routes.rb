@@ -9,20 +9,21 @@ Rails.application.routes.draw do
 
 	# current user
 	scope '/user' do
-		resources :lists, only: [:index, :show, :new, :edit], controller: 'user_lists', as: 'user_lists'
+		resources :lists, only: [:index, :new, :edit], controller: 'user_lists', as: 'user_lists'
 	end
   #         user_lists GET      /user/lists(.:format)                  user_lists#index
   #      new_user_list GET      /user/lists/new(.:format)              user_lists#new
   #     edit_user_list GET      /user/lists/:id/edit(.:format)         user_lists#edit
-  #          user_list GET      /user/lists/:id(.:format)              user_lists#show
 
 	# other users
-	resources :lists, only: [:index, :show]
+	resources :lists, only: [:index]
   #              lists GET      /lists(.:format)                       lists#index
-  #               list GET      /lists/:id(.:format)                   lists#show
 
 	# api
 	namespace :api do
+    resources :restaurants, only: [:create]
+    #api_restaurants POST     /api/restaurants(.:format)             api/restaurants#create
+
 		scope '/user' do
 			resources :lists, controller: 'user_lists', as: 'user_lists'
       #     api_user_lists GET      /api/user/lists(.:format)              api/user_lists#index
@@ -33,9 +34,11 @@ Rails.application.routes.draw do
       #                    PATCH    /api/user/lists/:id(.:format)          api/user_lists#update
       #                    PUT      /api/user/lists/:id(.:format)          api/user_lists#update
       #                    DELETE   /api/user/lists/:id(.:format)          api/user_lists#destroy
-      resources :bookmarks, only: [:index, :create], controller: 'user_bookmarks', as: 'user_bookmarks'
+      resources :bookmarks, only: [:index, :create, :destroy], controller: 'user_bookmarks', as: 'user_bookmarks'
       # api_user_bookmarks GET      /api/user/bookmarks(.:format)          api/user_bookmarks#index
       #                    POST     /api/user/bookmarks(.:format)          api/user_bookmarks#create
+      # api_user_bookmark  DELETE   /api/user/bookmarks/:id(.:format)      api/user_bookmarks#destroy
+
       resources :restaurant_list, only: [:index, :show, :create, :update], controller: 'restaurant_list', as: 'restaurant_lists'
 
 		end

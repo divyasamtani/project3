@@ -4,19 +4,14 @@
 class API::UserListsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_userlists, only: [:index]
-  before_action :set_userlist, only: [:show, :update, :destroy]
+  before_action :set_userlist, only: [:update, :destroy]
 
 # CRUD
-# 1
+# 1 - Show all of user's lists (working)
   def index
   end
 
-# 2
-  def show
-    render json: @list
-  end
-
-# 3
+# 2 - Create User List (not working)
   def create
     @userlist = current_user.lists.new(userlist_params)
 
@@ -27,7 +22,7 @@ class API::UserListsController < ApplicationController
     end
   end
 
-# 4
+# 3 - Update User List (not working)
   def update
     @userlist.assign_attributes(userlist_params)
 
@@ -38,28 +33,22 @@ class API::UserListsController < ApplicationController
     end
   end
 
-# 5
+# 4
   def destroy
     @userlist.destroy
     head 204
   end
 
 
-
 # PRIVATE METHODS
   private
-
-    def email
-      @email = List.find_by(id: param[:id]).user.email
-    end
-
     def set_userlists
-      @lists = current_user.lists
+      @userlists = current_user.lists
     end
 
     def set_userlist
-      @list = current_user.lists.find_by(id: params[:id])
-      if @list.nil?
+      @userlist = current_user.lists.find_by(id: params[:id])
+      if @userlist.nil?
         render json: {message: "Cannot find '#{params[:id]}'"}
       end
     end
