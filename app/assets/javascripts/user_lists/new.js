@@ -45,22 +45,26 @@ $('.user_lists.new').ready(function(){
 			}
 		};
 
-		var getRestaurantParams = {
+		for (var i = 0; i < countInputField; i++) {
+			console.log($('#restaurantInput' + countInputField).val());
+		}
 
-		};
+		// var getRestaurantParams = {
+
+		// };
 
 		$.ajax({
 			method: 'POST',
 			url: 'http://localhost:3000/api/user/lists',
-			data: getParams
+			data: getListParams
 		}).success(function(data) {
-			window.location.replace("http://localhost:3000/");
+			console.log(data);
 		});
 
-		// $.ajax({
-		// 	method: 'POST',
-		// 	url: 'http://localhost:3000/api/restaurant',
-		// 	data
-		// });
+		$.ajax({
+			method: 'POST',
+			url: 'http://localhost:3000/api/restaurant',
+			data: getRestaurantParams
+		});
 	});
 });
