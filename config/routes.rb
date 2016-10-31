@@ -38,6 +38,9 @@ Rails.application.routes.draw do
       # api_user_bookmarks GET      /api/user/bookmarks(.:format)          api/user_bookmarks#index
       #                    POST     /api/user/bookmarks(.:format)          api/user_bookmarks#create
       # api_user_bookmark  DELETE   /api/user/bookmarks/:id(.:format)      api/user_bookmarks#destroy
+
+      resources :restaurant_list, only: [:index, :show, :create, :update], controller: 'restaurant_list', as: 'restaurant_lists'
+
 		end
 
 		resources :lists
