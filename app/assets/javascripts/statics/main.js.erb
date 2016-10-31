@@ -2,6 +2,7 @@ $('.statics.main').ready(function(){
 	console.log('main')
 
 	var getLists = function () {
+    $('#lists-index').html('');
 		$.ajax({
 			url: '/api/lists',
 			method: 'get',
@@ -13,7 +14,15 @@ $('.statics.main').ready(function(){
 					var restaurants = "";
 
 					for(var i = 0; i < list.list_restaurants.length; i++) {
-						restaurants += '<li>' + '<input type="checkbox" class="filled-in" id="filled-in-box" checked="" /> <label for="filled-in-box">' + list.list_restaurants[i] + '</label>' + '</li>';
+            var check = ''
+
+            if (list.restaurant_checked[i][0] == true) {
+              check = 'checked="checked"'
+            } else {
+              check = ''
+            };
+
+						restaurants += '<li>' + '<span data-list-id="' + list.id + '"><input type="checkbox" ' + check + ' id="' + list.title + list.list_restaurants[i] + i + '" data-id="' + list.restaurant_checked[i][1] +'"/><label for="' + list.title + list.list_restaurants[i] + i + '">' + list.list_restaurants[i] + '</label>' + '</span></li>';
 				  }
 
 					var	html =
@@ -29,7 +38,7 @@ $('.statics.main').ready(function(){
                                 '<div class="restaurantWrapper">' + '<ul id="restaurantlist">' + restaurants + '</ul>'  +
                                 '</div>' +
                                 '<div class="starIcon">' +
-                                  '<i class="fa fa-star fa-2x bookmark" data-favourite="no" aria-hidden="true"></i>' +
+                                  '<i class="fa fa-star fa-2x bookmark" data-favourite="no" data-list-id="' + list.id + '" aria-hidden="true"></i>' +
                                 '</div>' +
                               '</div>' +
 			                			'</form>' +
@@ -46,13 +55,40 @@ $('.statics.main').ready(function(){
         console.log(resp);
       }
 		});
+    checkboxEventListener();
   };
 
-  var createBookmark = function (params) {
+  var checkboxEventListener = function() {
+    $('#lists-index').on('change', 'input:checkbox', (function(e){
+      var restListId = e.currentTarget.dataset.id;
+      var checked = e.currentTarget.checked;
+      var params = {
+        restaurant_list: {
+          // id: restListId,
+          checked: checked
+        }
+      }
+      $.ajax({
+        url: '/api/user/restaurant_list/' + restListId,
+        method: 'put',
+        data: params,
+        success: function(){
+          console.log('successfully updated restaurant!')
+        },
+        error: function(resp) {
+          console.log(resp)
+        }
+      })
+    }))
+  };
+
+  var createBookmark = function (listid) {
 		$.ajax({
         url: '/api/user/bookmarks',
         method: 'post',
-        data: params,
+        data: {ListBookmark:
+          {list_id: listid}
+        },
         success: function (bookmark) {
         	console.log('bookmarked');
         },
@@ -63,10 +99,11 @@ $('.statics.main').ready(function(){
   };
 
 // BOOKMARK BUTTON FUNCTIONALITY
-    var setBookmarkButton = function (params) {
+    var setBookmarkButton = function () {
     $('#lists-index').on('click', '.bookmark', function(e) {
       e.preventDefault();
-      createBookmark(params);
+      var ListId = e.currentTarget.dataset.listId;
+      createBookmark(ListId);
     });
   };
 
