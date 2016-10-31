@@ -7,11 +7,11 @@ class API::UserListsController < ApplicationController
   before_action :set_userlist, only: [:update, :destroy]
 
 # CRUD
-# 1 - Show all of user's lists (working)
+# 1 - Show all of user's lists (DIVYA)
   def index
   end
 
-# 2 - Create User List (not working)
+# 2 - Create User List (AKIRA)
   def create
     @userlist = current_user.lists.new(userlist_params)
 
@@ -22,7 +22,7 @@ class API::UserListsController < ApplicationController
     end
   end
 
-# 3 - Update User List (not working)
+# 3 - Update User List (AKIRA)
   def update
     @userlist.assign_attributes(userlist_params)
 
@@ -33,7 +33,7 @@ class API::UserListsController < ApplicationController
     end
   end
 
-# 4
+# 4 - Delete User List (DIVYA)
   def destroy
     @userlist.destroy
     head 204

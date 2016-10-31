@@ -18,6 +18,10 @@ class API::UserBookmarksController < ApplicationController
     end
   end
 
+  def destroy
+    @bookmark.destroy
+    head :ok
+  end
 
 # PRIVATE METHODS
   private
