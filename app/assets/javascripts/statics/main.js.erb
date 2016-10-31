@@ -22,7 +22,7 @@ $('.statics.main').ready(function(){
               check = ''
             };
 
-						restaurants += '<li>' + '<span data-list-id="' + list.id + '"><input type="checkbox" ' + check + ' id="' + list.title + list.list_restaurants[i] + i + '" data-id="' + list.restaurant_checked[i][1] +'"/><label for="' + list.title + list.list_restaurants[i] + i + '">' + list.list_restaurants[i] + '</label>' + '</span></li>';
+						restaurants += '<li>' + '<span data-list-id="' + list.id + '"><input type="checkbox" ' + check + ' id="' + list.title + list.list_restaurants[i] + i + '" data-id="' + list.restaurant_checked[i][1] + '" disabled="disabled"/><label for="' + list.title + list.list_restaurants[i] + i + '">' + list.list_restaurants[i] + '</label>' + '</span></li>';
 				  }
 
 					var	html =
@@ -55,32 +55,32 @@ $('.statics.main').ready(function(){
         console.log(resp);
       }
 		});
-    checkboxEventListener();
+    // checkboxEventListener();
   };
 
-  var checkboxEventListener = function() {
-    $('#lists-index').on('change', 'input:checkbox', (function(e){
-      var restListId = e.currentTarget.dataset.id;
-      var checked = e.currentTarget.checked;
-      var params = {
-        restaurant_list: {
-          // id: restListId,
-          checked: checked
-        }
-      }
-      $.ajax({
-        url: '/api/user/restaurant_list/' + restListId,
-        method: 'put',
-        data: params,
-        success: function(){
-          console.log('successfully updated restaurant!')
-        },
-        error: function(resp) {
-          console.log(resp)
-        }
-      })
-    }))
-  };
+  // var checkboxEventListener = function() {
+  //   $('#lists-index').on('change', 'input:checkbox', (function(e){
+  //     var restListId = e.currentTarget.dataset.id;
+  //     var checked = e.currentTarget.checked;
+  //     var params = {
+  //       restaurant_list: {
+  //         // id: restListId,
+  //         checked: checked
+  //       }
+  //     }
+  //     $.ajax({
+  //       url: '/api/user/restaurant_list/' + restListId,
+  //       method: 'put',
+  //       data: params,
+  //       success: function(){
+  //         console.log('successfully updated restaurant!')
+  //       },
+  //       error: function(resp) {
+  //         console.log(resp)
+  //       }
+  //     })
+  //   }))
+  // };
 
   var createBookmark = function (params) {
 		$.ajax({
