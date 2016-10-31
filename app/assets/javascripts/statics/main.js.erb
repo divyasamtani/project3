@@ -13,7 +13,7 @@ $('.statics.main').ready(function(){
 					var restaurants = "";
 
 					for(var i = 0; i < list.list_restaurants.length; i++) {
-						restaurants += '<li>' + '<input type="checkbox" class="filled-in" id="filled-in-box" checked="" /><label for="filled-in-box">' + list.list_restaurants[i] + '</label>' + '</li>';
+						restaurants += '<li>' + '<input type="checkbox" class="filled-in" id="filled-in-box" checked="" /> <label for="filled-in-box">' + list.list_restaurants[i] + '</label>' + '</li>';
 				  }
 
 					var	html =
@@ -21,14 +21,17 @@ $('.statics.main').ready(function(){
 											'<ul class="collapsible" data-collapsible="accordion">' +
 												'<li>' +
 													'<div class="collapsible-header green lighten-5">' +
-														'<div class="col s11">' + '<h6>' + '<span id="listTitle">' + list.title + '</span>' + ' ' + 'by' + ' ' + list.user_name + '</h6>' +
-														'</div>' +
-														'<div class="col s1">' + '<i class="fa fa-star" id="bookmark-star" data-favourite="no" aria-hidden="true"></i>' + '</div>' +
+											       '<span id="listTitle">' + list.title + '</span>' + ' ' + 'by' + ' ' + list.user_name +
 													'</div>' +
 													'<div class="collapsible-body white">' +
 														'<form action="#">' +
-															'<p>' + list.description + '<ul>' + restaurants + '</ul>'
-			                				'<p>' +
+                              '<div class="showrestaurants">' +
+                                '<div class="restaurantWrapper">' + '<ul id="restaurantlist">' + restaurants + '</ul>'  +
+                                '</div>' +
+                                '<div class="starIcon">' +
+                                  '<i class="fa fa-star fa-2x bookmark" data-favourite="no" aria-hidden="true"></i>' +
+                                '</div>' +
+                              '</div>' +
 			                			'</form>' +
 	                				'</div>' +
 	              				'</li>' +
@@ -50,22 +53,21 @@ $('.statics.main').ready(function(){
         url: '/api/user/bookmarks',
         method: 'post',
         data: params,
-
         success: function (bookmark) {
         	console.log('bookmarked');
         },
-
         error: function (resp) {
           console.log(resp);
         }
     });
   };
 
-	var bookmarkStarButton = function (params) {
-    $('#bookmark-star').on('click', function(e) {
-			e.preventDefault();
-    	createBookmark(params);
-		});
+// BOOKMARK BUTTON FUNCTIONALITY
+    var setBookmarkButton = function (params) {
+    $('#lists-index').on('click', '.bookmark', function(e) {
+      e.preventDefault();
+      createBookmark(params);
+    });
   };
 
 
@@ -97,10 +99,22 @@ $('.statics.main').ready(function(){
 	var init = function () {
 		signInModal();
 		getLists();
-		bookmarkStarButton();
+		setBookmarkButton();
 	};
 
 
 	init();
 
 });
+
+
+// '<div class="collapsible-body white">' +
+//  '<form action="#">' +
+//    '<div id="padding">' + '</div>' +
+//    '<div class="col s10">' +  list.description  + '</div>' +
+//    '<div class="col s2">' +
+//      '<i class="fa fa-star fa-2x bookmark" data-favourite="no" aria-hidden="true"></i>' +
+//    '</div>' +
+//      '<p>' + '<ul>' + restaurants + '</ul>' + '</p>' +
+//  '</form>' +
+// '</div>' +
