@@ -16,5 +16,5 @@
 //= require jquery-cookie/jquery.cookie
 //= require pubsub-js/src/pubsub
 //= require j-toker/dist/jquery.j-toker
-//= require materialize/dist/js/materialize
+//= require materialize
 //= require_tree .

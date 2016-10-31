@@ -1,6 +1,5 @@
 $('.user_lists.new').ready(function(){
-	// Limit input fields for restaurants, user can add.
-	const MAXINPUTFIELD = 10;
+	console.log("user_lists new");
 
 	// Tracks user input field.
 	var countInputField = 1;

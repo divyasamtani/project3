@@ -1,16 +1,14 @@
 .statics.main {
 
-  h2 {
-    color: white;
-    padding: 30px;
-    margin: 0px;
+  #allLists {
+    background-color: blue;
   }
 
 
   // COLLAPSIBLE
 
   .collapsible-header {
-    height: 50px;
+    height: 80px;
   }
 
   #listTitle {
@@ -55,4 +53,3 @@
   height: 90px;
 
 }
-

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
 	# current user
 	scope '/user' do
-		resources :lists, only: [:index, :new, :edit], controller: 'user_lists', as: 'user_lists'
+		resources :lists, only: [:index, :show, :new, :edit], controller: 'user_lists', as: 'user_lists'
 	end
   #         user_lists         GET         /user/lists                     user_lists#index
   #      new_user_list         GET         /user/lists/new                 user_lists#new
