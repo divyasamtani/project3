@@ -23,6 +23,9 @@ Rails.application.routes.draw do
 
 	# api
 	namespace :api do
+    resources :restaurants, only: [:create]
+    #api_restaurants POST     /api/restaurants(.:format)             api/restaurants#create
+
 		scope '/user' do
 			resources :lists, controller: 'user_lists', as: 'user_lists'
       #     api_user_lists GET      /api/user/lists(.:format)              api/user_lists#index
@@ -36,7 +39,6 @@ Rails.application.routes.draw do
       resources :bookmarks, only: [:index, :create], controller: 'user_bookmarks', as: 'user_bookmarks'
       # api_user_bookmarks GET      /api/user/bookmarks(.:format)          api/user_bookmarks#index
       #                    POST     /api/user/bookmarks(.:format)          api/user_bookmarks#create
-
 		end
 
 		resources :lists
