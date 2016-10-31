@@ -15,4 +15,37 @@
     font-weight: bold;
   }
 
+  #padding {
+    height: 15px;
+  }
+
+  #restaurantlist {
+    padding-left: 20px;
+  }
+
+  .showrestaurants {
+    position: relative;
+  }
+
+  .restaurantWrapper {
+    padding-top: 10px;
+
+  }
+
+  .starIcon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+  }
+
+}
+
+#logo {
+  background: image-url('brandlogo.png');
+  background-position: center center;
+  background-size: cover;
+  height: 50px;
+  width: 50px;
 }
