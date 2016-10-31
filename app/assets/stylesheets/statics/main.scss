@@ -1,5 +1,4 @@
 .statics.main {
-  background: image-url('restaurantblurred.jpg');
 
   h2 {
     color: white;
@@ -7,16 +6,15 @@
     margin: 0px;
   }
 
+
+  // COLLAPSIBLE
+
   .collapsible-header {
     height: 50px;
   }
 
   #listTitle {
     font-weight: bold;
-  }
-
-  #padding {
-    height: 15px;
   }
 
   #restaurantlist {
@@ -43,9 +41,18 @@
 }
 
 #logo {
-  background: image-url('brandlogo.png');
+  display: inline;
+  position: absolute;
+  content: image-url('brandlogo.png');
   background-position: center center;
   background-size: cover;
-  height: 50px;
-  width: 50px;
+  padding-left: 5px;
+  padding-top: 5px;
+  height: 80px;
 }
+
+.navbar-fixed {
+  height: 90px;
+
+}
+

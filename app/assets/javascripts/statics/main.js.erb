@@ -38,7 +38,7 @@ $('.statics.main').ready(function(){
                                 '<div class="restaurantWrapper">' + '<ul id="restaurantlist">' + restaurants + '</ul>'  +
                                 '</div>' +
                                 '<div class="starIcon">' +
-                                  '<i class="fa fa-star fa-2x bookmark" data-favourite="no" aria-hidden="true"></i>' +
+                                  '<i class="fa fa-star fa-2x bookmark" data-favourite="no" data-list-id="' + list.id + '" aria-hidden="true"></i>' +
                                 '</div>' +
                               '</div>' +
 			                			'</form>' +
@@ -82,11 +82,13 @@ $('.statics.main').ready(function(){
     }))
   };
 
-  var createBookmark = function (params) {
+  var createBookmark = function (listid) {
 		$.ajax({
         url: '/api/user/bookmarks',
         method: 'post',
-        data: params,
+        data: {ListBookmark:
+          {list_id: listid}
+        },
         success: function (bookmark) {
         	console.log('bookmarked');
         },
@@ -97,10 +99,11 @@ $('.statics.main').ready(function(){
   };
 
 // BOOKMARK BUTTON FUNCTIONALITY
-    var setBookmarkButton = function (params) {
+    var setBookmarkButton = function () {
     $('#lists-index').on('click', '.bookmark', function(e) {
       e.preventDefault();
-      createBookmark(params);
+      var ListId = e.currentTarget.dataset.listId;
+      createBookmark(ListId);
     });
   };
 

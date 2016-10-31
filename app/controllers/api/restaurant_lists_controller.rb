@@ -1,7 +1,11 @@
-class API::RestaurantListController < ApplicationController
+# controls current_user's restaurant list
+
+class API::RestaurantListsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_restaurantlists, only: [:index]
-  before_action :set_restaurantlist, only: [:show, :create, :update]
+
+# SET ID FOR THE RESTAURANT LIST BEING USED
+  before_action :set_restaurantlist, only: [:show, :create, :update, :destroy]
 
   def index
     render json: @restaurantlists
@@ -31,14 +35,15 @@ class API::RestaurantListController < ApplicationController
   end
 
 private
-
   def set_restaurantlists
     @restaurantlists = RestaurantList.all
   end
 
   def set_restaurantlist
     @restaurantlist = RestaurantList.find_by(id: params[:id])
-    @message = "Cannot find restaurant list with ID #{params[:id]}" if @restaurantlist.nil?
+    if @restaurantlist.nil?
+      @message = "Cannot find restaurant list with ID #{params[:id]}"
+    end
   end
 
   def restaurantlist_params
