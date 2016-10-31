@@ -14,7 +14,7 @@ $(document).ready(function(){
 
     $.auth.emailSignUp(params).then(function(user){
       // User succesfuly registered an account
-      alert('Welcome!');
+      window.location = "http://localhost:3000/user/lists"
     }).fail(function(resp) {
       alert(resp.reason);
     });

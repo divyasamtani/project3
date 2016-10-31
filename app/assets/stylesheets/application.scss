@@ -10,11 +10,14 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
 
-@import "bootstrap-mincer";
-@import "bootstrap";
-
-
  *= require_tree .
- *= require font-awesome/css/font-awesome.min
  *= require_self
  */
+
+
+.application {
+
+  padding: 10px
+
+}
+

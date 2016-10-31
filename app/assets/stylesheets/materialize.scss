@@ -35,8 +35,8 @@ $roboto-font-path: 'materialize/fonts/roboto/';
 
 @font-face {
   font-family: "Roboto";
-  src: url("#{$roboto-font-path}Roboto-Bold.woff2") format("woff2"),
-       url("#{$roboto-font-path}Roboto-Bold.woff") format("woff"),
-       url("#{$roboto-font-path}Roboto-Bold.ttf") format("truetype");
+  src: font-url("#{$roboto-font-path}Roboto-Bold.woff2") format("woff2"),
+       font-url("#{$roboto-font-path}Roboto-Bold.woff") format("woff"),
+       font-url("#{$roboto-font-path}Roboto-Bold.ttf") format("truetype");
   font-weight: 700;
 }
