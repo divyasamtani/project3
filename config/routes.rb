@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
 	# api
 	namespace :api do
-    resources :restaurants, only: [:create]
+    resources :restaurants
     #api_restaurants POST     /api/restaurants(.:format)             api/restaurants#create
 
 		scope '/user' do
