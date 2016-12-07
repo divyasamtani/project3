@@ -1,7 +1,8 @@
 .statics.main {
 
   h2 {
-    color: white;
+    color: black;
+    font-weight: bold;
     padding: 30px;
     margin: 0px;
   }
@@ -54,5 +55,11 @@
 .navbar-fixed {
   height: 90px;
 
+}
+
+#logoutButton, #sign_inButton {
+  height: 50px;
+  padding-top: 8px;
+  margin-top: 10px
 }
 
