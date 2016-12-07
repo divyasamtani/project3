@@ -1,5 +1,7 @@
 $(document).ready(function(){
   console.log('auth ready')
+  $('#logoutButton').hide();
+
 
   $.auth.configure({
     apiUrl: 'http://localhost:3000'
@@ -33,6 +35,8 @@ $(document).ready(function(){
 
     $.auth.emailSignIn(params).then(function(resp){
       alert('Logged In!');
+      $('#logoutButton').show();
+      $('#sign_inButton').hide();
     }).fail(function(resp) {
       console.log(resp)
     })
